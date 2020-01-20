@@ -1,6 +1,8 @@
 # mongo_db
 Scripts for Mongo DB
 
+# This script is for my personal use. If anyone copy and use it, it's not my problem in any case of harm caused by it.
+
 
 #
 # By: Moisa Cardoso (moisescardoso83@gmail.com)
