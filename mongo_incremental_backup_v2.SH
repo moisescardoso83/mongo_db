@@ -1,29 +1,4 @@
 #!/bin/bash
-#
-# By: Moisa Cardoso (moisescardoso82@gmail.com)
-#
-# version: 2
-# *     Removed function to set initial statci params
-# *     Added Lck file and trap
-# *     Added possibility to pass db and server info via params
-#
-# *     Added query to avoid empty ns and avoid system collections references
-# *     Added function to deleted empty bson files. See below
-# *     |-> In case of no transactions, will be created a empty bson file, which will be deleted.
-# *     |-> This is to avoid creating a lot of empty files.
-
-
-# This script takes dumps from MongoDB and it's meant to be incremental and run on Replicasets.
-#
-# To do it, it will:
-#
-# 1) Create a initial dump from mongo internal "local"(oplog.rs) database (
-# which is a local mirror of other databases and have all operations timestamped.
-# Using this operation timestamp, we're able to walk through all info that mongo has ever
-# handled)
-#
-# 2) Check last backup, find last oplog timestamp and dump newer info until execution date.
-#
 
 if [ $# -gt 0 -a $# -lt 4 ]; then
     echo -e "\nUsage: $0 [ USER PASSWORD DATABASE_NAME SERVERS ]\nThis script may run with all OPTIONS or NONE.\n
